@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nonioaey Payment</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #DFFFF3; /* พื้นหลังเขียวมิ้นต์อ่อนมาก */
+            /* ลายตาราง Grid ตามบรีฟ */
+            background-image: 
+                linear-gradient(#A8EFDF 1px, transparent 1px),
+                linear-gradient(90deg, #A8EFDF 1px, transparent 1px);
+            background-size: 25px 25px;
+            position: relative;
+        }
+        
+        /* ลายจุด Polka Dots จางๆ ทับหน้า */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(255,255,255,0.4) 2px, transparent 2px);
+            background-size: 15px 15px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bounce-hover:hover {
+            transform: translateY(-2px);
+        }
+
+        .custom-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mint: {
+                            50: '#DFFFF3',
+                            100: '#A8EFDF',
+                            200: '#8DEED8', // Accent 1
+                            500: '#333333', // Text Color
+                        },
+                        pastel: {
+                            cream: '#F7F2D1', // Accent 2
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10 px-4 text-mint-500 relative overflow-x-hidden">
+
+    <div id="toast" class="fixed top-6 left-1/2 transform -translate-x-1/2 bg-mint-200 text-mint-500 px-6 py-3 rounded-full shadow-md transition-all duration-300 opacity-0 -translate-y-4 pointer-events-none z-50 flex items-center gap-2 font-medium text-sm border border-white">
+        ✨ คัดลอกเรียบร้อยแล้วค่ะ
+    </div>
+
+    <div class="relative z-10 mb-8 flex flex-col items-center gap-4 mt-4">
+        <div class="flex gap-2">
+            <span class="w-3 h-3 rounded-full bg-mint-200 animate-pulse border border-white"></span>
+            <span class="w-3 h-3 rounded-full bg-pastel-cream border border-white"></span>
+            <span class="w-3 h-3 rounded-full bg-mint-100 border border-white"></span>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <h1 class="text-2xl md:text-3xl font-bold tracking-wide text-mint-500 drop-shadow-sm">
+                Nonioaey Payment
+            </h1>
+        </div>
+        
+        <div class="bg-white/80 border border-mint-200 px-4 py-1.5 rounded-full text-[12px] flex items-center gap-2">
+            <span class="flex h-2 w-2 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+            </span>
+            เช็คคิวงานล่าสุด: <span class="font-bold underline cursor-pointer">คลิกที่นี่</span>
+        </div>
+    </div>
+
+    <div class="max-w-md w-full relative z-10">
+        
+        <div class="absolute -top-6 -left-2 text-2xl animate-bounce">🧸</div>
+        <div class="absolute top-1/4 -right-4 text-xl rotate-12">⭐</div>
+        <div class="absolute top-1/2 -left-6 text-xl text-mint-200 opacity-70">🐚</div>
+        <div class="absolute bottom-20 -right-2 text-2xl animate-pulse">🤍</div>
+
+        <div class="bg-white p-2 rounded-[24px] border-4 border-mint-200 shadow-lg relative z-10 mb-6">
+            <div class="absolute -top-3 -right-3 z-20 bg-pastel-cream border-2 border-dashed border-mint-200 px-3 py-1 rounded-lg text-[10px] font-bold rotate-6">
+                CHECK QUEUE
+            </div>
+
+            <img src="https://raw.githubusercontent.com/username/repo/main/image.png" alt="Nonioaey Payment" class="w-full h-auto object-cover rounded-[16px]" onerror="this.src='image.png'">
+        </div>
+
+        <div class="bg-white/95 px-6 pb-8 pt-8 rounded-[24px] border-2 border-mint-100 shadow-sm relative z-10">
+            
+            <div class="space-y-6 relative z-10">
+                <div class="text-center space-y-4">
+                    <p class="text-[15px] leading-relaxed font-medium text-mint-500">
+                        <span class="text-mint-200 text-lg">✿</span> อย่าลืมโน๊ตสลิปกันนะคะ <span class="text-mint-200 text-lg">✿</span>
+                        <br><span class="text-[13px] text-gray-500 mt-1 block">หากลืมโน๊ตสลิปโอนมาใหม่ 0.1 พร้อมโน๊ตสลิปนะคะ</span>
+                    </p>
+                    
+                    <div class="bg-mint-50 text-mint-500 rounded-xl p-3 text-[13px] inline-flex items-center gap-2 border border-mint-100 w-full justify-center">
+                        <span class="text-lg">📢</span>
+                        <span>โอนเเล้วส่งสลิปไว้ได้ในเเชทเลยค่ะ</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-2 border-t border-dashed border-mint-200">
+                    <div class="text-center text-[12px] font-bold text-gray-400 mb-2 uppercase tracking-widest">Payment Details</div>
+
+                    <div class="bg-white rounded-[16px] p-3 flex items-center justify-between border-2 border-mint-200 shadow-sm transition-all hover:bg-mint-50">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xs">K</div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 font-medium">กสิกรไทย (ศศิกานต์ น้ำเขียว)</div>
+                                <div class="font-bold tracking-wider text-mint-500 text-base">1311458678</div>
+                            </div>
+                        </div>
+                        <button onclick="copyText('1311458678', this)" class="bounce-hover bg-mint-200 hover:bg-mint-100 text-white text-[11px] font-bold px-4 py-2 rounded-full transition-colors border border-white">
+                            COPY
+                        </button>
+                    </div>
+
+                    <div class="bg-white rounded-[16px] p-3 flex items-center justify-between border-2 border-pastel-cream shadow-sm transition-all hover:bg-pastel-cream/30">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs">W</div>
+                            <div>
+                                <div class="text-[10px] text-gray-400 font-medium">วอเลท (ศศิกานต์ น้ำเขียว)</div>
+                                <div class="font-bold tracking-wider text-orange-500 text-base">0826348896</div>
+                            </div>
+                        </div>
+                        <button onclick="copyText('0826348896', this)" class="bounce-hover bg-pastel-cream hover:bg-white text-mint-500 text-[11px] font-bold px-4 py-2 rounded-full transition-colors border border-mint-100">
+                            COPY
+                        </button>
+                    </div>
+                    
+                    <a href="https://tmn.app.link/nEoPnxQ9R1b" target="_blank" class="block w-full text-center py-2 bg-mint-50 border border-mint-100 rounded-lg text-[12px] font-medium hover:bg-white transition-all">
+                        🔗 กดเพื่อโอนผ่านลิงก์ Wallet
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 mt-4 pt-4 border-t border-gray-100">
+                    <a href="https://www.facebook.com/profile.php?id=61554192600355" class="bg-blue-50 text-blue-600 p-2 rounded-lg text-center text-[11px] font-bold border border-blue-100 hover:bg-blue-100 transition-all">Facebook</a>
+                    <a href="https://line.me/ti/p/LfBtdhlrVa" class="bg-green-50 text-green-600 p-2 rounded-lg text-center text-[11px] font-bold border border-green-100 hover:bg-green-100 transition-all">Line Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyText(text, buttonElement) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+                const originalHtml = buttonElement.innerHTML;
+                buttonElement.innerHTML = 'COPIED!';
+                buttonElement.style.backgroundColor = '#333333';
+                buttonElement.style.color = '#ffffff';
+                setTimeout(() => {
+                    buttonElement.innerHTML = originalHtml;
+                    buttonElement.style.backgroundColor = '';
+                    buttonElement.style.color = '';
+                }, 2000);
+            } catch (err) {}
+            document.body.removeChild(textArea);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', '-translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', '-translate-y-4');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
